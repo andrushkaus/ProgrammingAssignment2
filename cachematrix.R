@@ -1,21 +1,32 @@
-## matrixFunctions is function that handles square matrices
 ## makeCacheMatrix() - creates a special "matrix" object that can cache its inverse
 ## cacheSolve() - function computes the inverse of the special "matrix" returned by makeCacheMatrix above
 
-matrixFunctions <- function(x, ...) {
-  #makeCacheMatrix()
-  makeCacheMatrix <- function(x = matrix()) {
-  a
+
+
+makeCacheMatrix <- function(x = matrix()) {
+  inv <- NULL
+  ## set matrix()
+  set <- function(y) {
+    x <<- y
+    inv <<- NULL
   }
- # #cacheSolve
+  ## get matrix()
+  get <- function() x
+  ##cacheSolve()
+
   cacheSolve <- function(x, ...) {
-      ## Return a matrix that is the inverse of 'x'
-      if (!is.null(y) && matequal(x, cached) {
-        return(y)
+      ## if 
+      if ( !is.null(inv) ) {
+        message("###Inverted matrix has already been calculated### \r\n ###THE RESULT IS:")
+        return(inv)
       }
-      y <-solve(x)
-      return(y)
+      ## Return a matrix that is the inverse of 'x'
+      data <- x$get()
+      inv <<- solve(data)
+      inv
   }
+  list(set = set, get = get,
+       cacheSolve = cacheSolve)
 }
 
 
